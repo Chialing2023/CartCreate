@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<Dialog title="Select G/L Account ">
+		<content>
+			<fb:FilterBar showFilterConfiguration="false" showGoOnFB="false" showRestoreButton="false" useToolbar="false">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="GLGROUP" name="G/L Account" label="G/L Account" visibleInFilterBar="true">
+						<fb:control>
+							<Input id="idGLAcoountInput"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="GLGROUP" name="Chart of Accounts" label="Chart of Accounts" visibleInFilterBar="true">
+						<fb:control>
+							<ComboBox items="{ChartAccModel>/results}" id="idChartAccInput">
+								<core:Item key="{ChartAccModel>Ktopl}" text="{ChartAccModel>Ktopl} - ({ChartAccModel>Ktplt})"></core:Item>
+							</ComboBox>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+			<OverflowToolbar>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button text="Go" type="Emphasized" icon="sap-icon://search" press="onGLSearch"></Button>
+				<Button text="Clear" type="Emphasized" press="onGLClear" icon="sap-icon://sys-cancel"></Button>
+			</OverflowToolbar>
+			<Table items="{GLAccountModel>/results}" mode="SingleSelectLeft" id="idGLAccountTable" growing="true" growingThreshold="10">
+				<columns>
+					<Column width="5rem">
+						<Text text="G/L Account"></Text>
+					</Column>
+					<Column width="5rem" demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Chart Of Accts"></Text>
+					</Column>
+					<Column width="5rem" demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Long Text"></Text>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{GLAccountModel>SAKNR}"></Text>
+							<Text text="{GLAccountModel>KTOPL}"></Text>
+							<Text text="{GLAccountModel>GL_DESCR}"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button type="Accept" text="OK" press="onSelectGLAccount"></Button>
+		</beginButton>
+		<endButton>
+			<Button type="Reject" text="Cancel" press="onCloseGLAccount"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

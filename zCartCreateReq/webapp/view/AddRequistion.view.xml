@@ -1,0 +1,165 @@
+<mvc:View controllerName="CTL.zcartcreaterequistion.controller.AddRequistion" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:ui="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+    <!-- <Shell id="shell"> -->
+        <!-- <App id="app"> -->
+            <!-- <pages> -->
+                <Page id="page" title="{i18n>title}">
+                    
+                    <content>
+                        <MessageStrip id="prMsg" text="{SuccessMsgModel>/MSG}" visible="{SuccessMsgModel>/SHOW}" showIcon="true" showCloseButton="true" />
+                        <HBox justifyContent="Center">
+                            <VBox justifyContent="Center" width="10%">
+                                <!-- Akshara added f4 for user id as per the request from stevan -->
+                                <Input id="idSAPuserid" maxLength="15" type="Text" placeholder="SAP USER ID" showValueHelp="true" valueHelpRequest="handleValueHelp" change="onSearchSUserId" value="{UserModel>/userId}" />
+                                <Label />
+                              
+                            </VBox>
+                        </HBox>
+                        <HBox justifyContent="Center">
+                            <HBox justifyContent="Center">
+                                <HBox justifyContent="Center">
+                                    <Label class="sapUiTinyMarginEnd sapUiLargeMarginBegin" text="On behalf of the User:" design="Bold" />
+                                    <Label id="idSAPUserName" class="sapUiLargeMarginEnd" text="{UserModel>/userName}" design="Bold" />
+                                </HBox>
+                            </HBox>
+                            <HBox justifyContent="End">
+                                <HBox justifyContent="End">
+                                    <Label class="sapUiTinyMarginEnd sapUiLargeMarginBegin" labelFor="idCostCent" text="Cost Center: " design="Bold" />
+                                </HBox>
+                                <HBox justifyContent="End">
+                                    <Input id="idCostCent" width="3cm" editable="false" value="{UserModel>/costCenter}" />
+                                </HBox>
+                            </HBox>
+                        </HBox>
+                        <fb:FilterBar id="idFilterbar" search="onAddRequisition" clear="onClearFilter" showFilterConfiguration="false" showGoOnFB="true" showClearOnFB="true" showRestoreButton="false" useToolbar="false">
+                            <fb:filterGroupItems>
+                                <fb:FilterGroupItem id="cartFilter" groupName="__$INTERNAL$" name="CART_Item" label="CART Item" visibleInFilterBar="true">
+                                    <fb:control>
+                                        <Input id="idCartItem" maxLength="5" liveChange="cartItemRegExpValid" value="{FilterModel>/cartitem}" />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="Material" label="Material Number" visibleInFilterBar="true">
+                                    <fb:control>
+                                        <!-- Akshara changed max length from 18 to 40 -->
+                                        <MultiInput id="idMaterial" maxLength="40" valueHelpRequest="onMaterialValueHelpDialog" showValueHelp="true" liveChange="materialRegExpValid" value="{FilterModel>/material}" />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="Material Description" label="Material Description" visibleInFilterBar="true">
+                                    <fb:control>
+                                        <Input name="Material Description" id="idMaterialDesc" maxLength="80" value="{FilterModel>/matDescr}" />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="Mfr. Part Number" label="Mfr. Part Number" visibleInFilterBar="true">
+                                    <fb:control>
+                                        <Input name="Mfr. Part Number" id="idManufac" maxLength="80" value="{FilterModel>/manufac}" />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                                <!--<fb:FilterGroupItem groupName="__$INTERNAL$" name="Quest Material" label="Quest Material" visibleInFilterBar="true">-->
+                                <!--	<fb:control>-->
+                                <!--		<Input id="idQuestMaterial" liveChange="materialRegExpValid" maxLength="18" value="{FilterModel>/questMat}"/>-->
+                                <!--	</fb:control>-->
+                                <!--</fb:FilterGroupItem>-->
+                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="Category5" label="Favorite" visibleInFilterBar="true">
+                                    <fb:control>
+                                        <Input id="idFavList" showValueHelp="true" valueHelpRequest="onFavListValueHelp" value="{FilterModel>/favourite}" />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                            </fb:filterGroupItems>
+                        </fb:FilterBar>
+                        <Table mode="MultiSelect" items="{AddRequistionModel>/results}" id="idReqDetailTable">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <Title text="{AddRequistionModel>/NOOF_ITEMS}" id="reqTableHeaderText" level="H2" />
+                                        <ToolbarSpacer />
+                                        <SearchField width="auto" id="idTableSearchField" visible="{ReviewRequsitionSoldToEditModel>/visible}" liveChange="onFilterReqItems" />
+                                        <!--<Button id="idAddItemBtn" type="Accept" icon="sap-icon://sys-add" visible="{ReviewRequsitionSoldToEditModel>/visible}" press="onAddItem"></Button>-->
+                                        <Button id="idRemoveItemBtn" visible="{ReviewRequsitionSoldToEditModel>/visible}" type="Reject" icon="sap-icon://sys-minus" press="onRemoveItem" />
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="5rem" hAlign="Center">
+                                    <Text text="CART Item" />
+                                </Column>
+                                <Column width="5rem" hAlign="Center">
+                                    <Text text="Material Number" />
+                                </Column>
+                                <Column width="10rem" hAlign="Center" demandPopin="true" minScreenWidth="Tablet">
+                                    <Text text="Material Description" />
+                                </Column>
+                                <Column width="3rem" hAlign="Center" demandPopin="true" minScreenWidth="Tablet">
+                                    <!-- Akshara changed text from account assignment to cost center -->
+                                    <Text text="Manf. Part Number" />
+                                </Column>
+                                <Column width="11rem" hAlign="Center" demandPopin="true" minScreenWidth="Tablet">
+                                    <!-- Akshara changed text from account assignment to cost center -->
+                                    <Text text="Manufacturer" />
+                                </Column>
+                                <Column width="2rem" hAlign="Center" demandPopin="true" minScreenWidth="Tablet">
+                                    <Text text="UoM" />
+                                </Column>
+                                <Column width="3rem" hAlign="Center" demandPopin="true" minScreenWidth="Tablet">
+                                    <Text text="Price" />
+                                </Column>
+                                <Column width="2rem" hAlign="Center" demandPopin="true" minScreenWidth="Tablet">
+                                    <Text text="Per" />
+                                </Column>
+                                <Column width="2rem" hAlign="Center" demandPopin="true" minScreenWidth="Tablet">
+                                    <Text text="Min Qty" />
+                                </Column>
+                                <Column id="ordMul" width="3rem" hAlign="Center" demandPopin="true" minScreenWidth="Tablet">
+                                    <Text text="Order Multiple" />
+                                </Column>
+                                <Column width="2rem" hAlign="Center" demandPopin="true" minScreenWidth="Tablet">
+                                    <Text text="Max Qty" />
+                                </Column>
+                                <Column width="4rem" demandPopin="true" minScreenWidth="Tablet" hAlign="Center">
+                                    <Text text="Quantity" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem highlight="{AddRequistionModel>ZVAlSTATE}">
+                                    <cells>
+                                        <Input value="{AddRequistionModel>CARTCODE}" submit="onSubmitCartCode" editable="{AddRequistionModel>ZEDITABLE}" liveChange="cartItemRegExpValid" valueState="{AddRequistionModel>ZVAlSTATE}" />
+                                        <Input value="{AddRequistionModel>MATNR}" submit="onSubmitMaterialItem" editable="{AddRequistionModel>ZEDITABLE}" showValueHelp="true" valueHelpRequest="materialValueHelp" liveChange="materialRegExpValid" valueState="{AddRequistionModel>ZVAlSTATE}" />
+                                        <Text text="{AddRequistionModel>ZMAKTX}" />
+                                        <!-- Akshara changed feild name of cost center to COST_CEN -->
+                                        <Text text="{AddRequistionModel>MFRPN}" />
+                                        <Text text="{AddRequistionModel>ZMFNAME}" />
+                                        <!-- Akshara changed feild name of UiM to MEINS -->
+                                        <Text text="{AddRequistionModel>MEINS}" />
+                                        <Text text="{AddRequistionModel>NETPR}" />
+                                        <Text text="{AddRequistionModel>PEINH}" />
+                                        <Text text="{AddRequistionModel>ORD_MIN}" />
+                                        <Text text="{AddRequistionModel>ORD_MUL}" />
+                                        <Text text="{AddRequistionModel>ORD_MAX}" />
+                                        <Input value="{AddRequistionModel>QUANTITY}" textAlign="Right" valueState="{AddRequistionModel>ZVAlSTATE}" liveChange="onQuantityValidation" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                        <!--<MessageBox></MessageBox>-->
+                    </content>
+                    <footer>
+                        <!--<OverflowToolbar>-->
+                        <!--</OverflowToolbar>-->
+                        <OverflowToolbar id="infobar">
+                            <!--<HBox>-->
+                            <!--</HBox>-->
+                            <!--<HBox>-->
+                            <ToolbarSpacer />
+                            <!-- Akshara commented edit cost centre button  -->
+                            <!-- <Button id="idEditAcc" visible="{ReviewRequsitionSoldToEditModel>/visible}" type="Emphasized" text="Edit Cost Center"
+								press="onEditAccountAssign" icon="sap-icon://edit"></Button> -->
+                            <Button id="idcomment" visible="{ReviewRequsitionSoldToEditModel>/visible}" type="Emphasized" text="Header Text" icon="sap-icon://comment" press="onPressComment" />
+                            <Button id="idReviewReq" visible="{ReviewRequsitionSoldToEditModel>/visible}" type="Emphasized" text="Review Order" press="onReviewRequistion" icon="sap-icon://detail-view" />
+                            <Button id="idCancelReq" visible="{ReviewRequsitionSoldToEditModel>/visible}" type="Emphasized" text="Cancel Order" press="onCancelRequisition" icon="sap-icon://sys-cancel" />
+                            <Button id="idSaveReq" visible="{ReviewRequsitionSoldToEditModel>/visible}" type="Emphasized" text="Save Variant" icon="sap-icon://save" press="onSaveVaraint" />
+                            <!--</HBox>	-->
+                        </OverflowToolbar>
+                    </footer>
+                </Page>
+            <!-- </pages> -->
+        <!-- </App> -->
+    <!-- </Shell> -->
+</mvc:View>

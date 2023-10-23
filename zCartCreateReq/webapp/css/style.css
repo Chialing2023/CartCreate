@@ -1,0 +1,28 @@
+/* Enter your custom styles here */
+
+.sapMListTblCell {
+    border: 1px solid #e5e5e5;
+}
+.sapUiCompFilterBar {
+    background-color: #fafafa;
+    border-bottom: 1px solid #d1e0ee;
+}
+.usertext{
+	  font-weight: bold;
+	  padding-left: 10%;
+}
+.cartGrp{
+	width:5rem;
+}
+.stretch{
+	width:5rem;
+}
+/*#application-Test-url-component---AddRequistion--idSAPuserid-inner{*/
+/*	font-size: medium !important;*/
+/*    font-weight: bold !important;;*/
+/*}*/
+
+/*#application-Test-url-component---AddRequistion--idSAPUserName-inner{*/
+/*	font-size: medium !important;*/
+/*    font-weight: bold !important;;*/
+/*}*/

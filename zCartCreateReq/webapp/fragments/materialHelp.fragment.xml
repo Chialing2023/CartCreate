@@ -1,0 +1,111 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+<!-- Akshara added contentWidth and contentHeight to the dialog control -->
+	<Dialog  title="Select:SAP Material" contentHeight = "7cm" contentWidth = "20cm">
+		<content>
+			<fb:FilterBar filterContainerWidth="9rem" showFilterConfiguration="false" search="onMaterailSearch" clear="onClearMatf4" showGoOnFB="true" showClearOnFB="true" showRestoreButton="false" useToolbar="false">
+				<fb:filterGroupItems>
+					<!--<fb:FilterGroupItem   groupName="INTERNAL_GROUP" name="Old Material Number" label="Old Material Number" visibleInFilterBar="true">-->
+					<!--	<fb:control>-->
+					<!--		<Input value="{Matf4Model>/oldmatno}"/>-->
+					<!--	</fb:control>-->
+					<!--</fb:FilterGroupItem>-->
+					<fb:FilterGroupItem groupName="INTERNAL_GROUP" name="Material" label="Material Number" visibleInFilterBar="true">
+						<fb:control>
+							<Input value="{Matf4Model>/matnr}"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<!--<fb:FilterGroupItem groupName="INTERNAL_GROUP" name="Level3 Material Code" label="Level3 Material Code" visibleInFilterBar="true">-->
+					<!--	<fb:control>-->
+					<!--		<Input value="{Matf4Model>/l3matcode}"/>-->
+					<!--		</fb:control>-->
+					<!--</fb:FilterGroupItem>-->
+					<fb:FilterGroupItem groupName="INTERNAL_GROUP" name="Long Description" label="Long Description" visibleInFilterBar="true">
+						<fb:control>
+							<!--<Input name="Name" showValueHelp="true" valueHelpRequest="onMaterialValueHelpDialog"/>-->
+							<Input value="{Matf4Model>/longdesc}" />
+							</fb:control>
+					</fb:FilterGroupItem>
+                    <!-- Akshara comment start -->
+					<!-- <fb:FilterGroupItem groupName="INTERNAL_GROUP" name="HECI Code" label="HECI Code" visibleInFilterBar="true">
+						<fb:control>
+							<Input value="{Matf4Model>/hecicode}" />
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="INTERNAL_GROUP" name="AIC Code" label="AIC Code" visibleInFilterBar="true">
+						<fb:control>
+							<Input value="{Matf4Model>/aiccode}" />
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="INTERNAL_GROUP" name="ICC Code" label="ICC Code" visibleInFilterBar="true">
+						<fb:control>
+							<Input value="{Matf4Model>/icccode}" />
+						</fb:control>
+					</fb:FilterGroupItem> -->
+                    <!-- Akshara comment end -->  
+
+					<!--<fb:FilterGroupItem groupName="INTERNAL_GROUP" name="Master Material Num" label="Master Material Num" visibleInFilterBar="true">-->
+					<!--	<fb:control>-->
+					<!--		<Input value="{Matf4Model>/mastermarno}"/>-->
+					<!--	</fb:control>-->
+					<!--</fb:FilterGroupItem>-->
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+			<!--<OverflowToolbar>-->
+			<!--	<ToolbarSpacer></ToolbarSpacer>-->
+			<!--	<Button text="Go" type="Emphasized" icon="sap-icon://cart" press="onMaterailSearch"></Button>-->
+			<!--	<Button text="Clear" icon="sap-icon://sys-cancel"></Button>-->
+			<!--</OverflowToolbar>-->
+			<Table items="{MaterailModel>/results}" mode="SingleSelectLeft" growing="true" growingThreshold="10">
+				<columns>
+					<!--<Column width="5rem">-->
+					<!--	<Text text="Old Matl Number"></Text>-->
+					<!--</Column>-->
+					<Column width="5rem" demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Material"></Text>
+					</Column>
+					<!--<Column width="5rem" demandPopin="true" minScreenWidth="Tablet">-->
+					<!--	<Text text="Level3 Material Code"></Text>-->
+					<!--</Column>-->
+					<Column width="10rem" demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Long Description"></Text>
+					</Column>
+                    <!-- Akshara comment start -->
+					<!-- <Column width="5rem" demandPopin="true" minScreenWidth="Tablet">
+						<Text text="HECI Code"></Text>
+					</Column>
+					<Column width="5rem" demandPopin="true" minScreenWidth="Tablet">
+						<Text text="AIC Code"></Text>
+					</Column>
+					<Column width="5rem" demandPopin="true" minScreenWidth="Tablet">
+						<Text text="ICC Code"></Text>
+					</Column> -->
+                    <!-- Akshara comment end -->
+					<!--<Column width="5rem" demandPopin="true" minScreenWidth="Tablet">-->
+					<!--	<Text text="Master Material Num"></Text>-->
+					<!--</Column>-->
+					
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<!--<Text text="{MaterailModel>BISMT}" wrapping="true"></Text>-->
+							<Text text="{MaterailModel>MATNR}" wrapping="true"></Text>
+							<!--<Text text="{MaterailModel>ZGTECD}" wrapping="true"></Text>-->
+							<Text text="{MaterailModel>ZMAKTX}" wrapping="true"></Text>
+							<Text text="{MaterailModel>ZHECI_CODE}" wrapping="true"></Text>
+							<Text text="{MaterailModel>ZAIC_CODE}" wrapping="true"></Text>
+							<Text text="{MaterailModel>ZICC_CODE}" wrapping="true"></Text>
+							<!--<Text text="{MaterailModel>ZMMATNR}" wrapping="true"></Text>-->
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button type="Accept" text="OK" press="onMaterialSelectOk"></Button>
+		</beginButton>
+		<endButton>
+			<Button type="Reject" text="Cancel" press="onMateriaDialogClose"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

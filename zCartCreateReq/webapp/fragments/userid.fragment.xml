@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="SAP User ID" items="{path: 'elementJSON>/results'}" search="_handleValueHelpSearch" confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose">
+		<StandardListItem iconDensityAware="false" iconInset="false" title="{elementJSON>BNAME}" description="{elementJSON>FULLNAME}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

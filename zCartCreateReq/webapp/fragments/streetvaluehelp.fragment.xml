@@ -1,0 +1,87 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout"
+	xmlns:f="sap.f">
+	<Dialog title="Select:Street" contentWidth="820px">
+		<content>
+			<Panel width="100%">
+				<layout:HorizontalLayout allowWrapping="true">
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Street:" design="Bold"></Label>
+						<Input id="idStreetValHelp"  maxLength="30" ></Input>
+						<Label text="CityExtension:" design="Bold"></Label>
+						<Input id="idStreetCityExtStreetValHelp"  maxLength="60"></Input>
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="City:" design="Bold"></Label>
+						<Input id="idCityStreetValHelp" maxLength="30"></Input>
+						<Label text="Region:" design="Bold"></Label>
+						<Input id="idRegionStreetValHelp" maxLength="10"></Input>
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Country Key:" design="Bold"></Label>
+						<Input id="idCountryKeyStreetValHelp" maxLength="30"></Input>
+						<Label text="Language Key:" design="Bold"></Label>
+						<Input id="idlangKeyStreetValHelp" maxLength="10"></Input>
+					</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiMediumMarginEnd">
+				</layout:VerticalLayout>
+				</layout:HorizontalLayout>
+			
+				<OverflowToolbar>
+					<ToolbarSpacer></ToolbarSpacer>
+					<Button type="Emphasized" text="Search" press="onSearchStreets"></Button>
+					<Button type="Emphasized" text="clear" press="onClearStreets"></Button>
+				</OverflowToolbar>
+			</Panel>
+			<!--<Panel>-->
+			<Table mode="SingleSelectLeft" id="idStreetAddTable" items="{StreetModel>/results}" growing="true" growingThreshold="10">
+				<columns>
+					<Column>
+						<Label text="Street" wrapping="true"></Label>
+					</Column>
+					<Column demandPopin="true" minScreenWidth="Tablet">
+						<Label text="City" wrapping="true"></Label>
+					</Column>
+					<Column demandPopin="true" minScreenWidth="Tablet">
+						<Label text="Region" wrapping="true"></Label>
+					</Column>
+					<Column demandPopin="true" minScreenWidth="Tablet">
+						<Label text="City Ext" wrapping="true"></Label>
+					</Column>
+					<Column demandPopin="true" minScreenWidth="Tablet">
+						<Label text="Country" wrapping="true" width="6rem"></Label>
+					</Column>
+					<!--<Column demandPopin="true" minScreenWidth="Tablet">-->
+					<!--	<Label text="Language" wrapping="true"></Label>-->
+					<!--</Column>-->
+					<!--<Column demandPopin="true" minScreenWidth="Tablet">-->
+					<!--	<Label text="Street Number" wrapping="true"></Label>-->
+					<!--</Column>-->
+					<!--<Column demandPopin="true" minScreenWidth="Tablet">-->
+					<!--	<Label text="Street" wrapping="true" ></Label>-->
+					<!--</Column>-->
+					<!--<Column demandPopin="true" minScreenWidth="Tablet">-->
+					<!--	<Label text="City Number" width="5rem" wrapping="true"></Label>-->
+					<!--</Column>-->
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{StreetModel>STREET}" wrapping="true"></Text>
+							<Text text="{StreetModel>CITY}" wrapping="true"></Text>
+							<Text text="{StreetModel>REGION}" wrapping="true"></Text>
+							<Text text="{StreetModel>CITY_EXTN}" wrapping="true"></Text>
+							<Text text="{StreetModel>CNTRY_KEY}" wrapping="true"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<!--</Panel>-->
+		</content>
+		<beginButton>
+			<Button type="Accept" text="OK" press="onStreetSelect"></Button>
+		</beginButton>
+		<endButton>
+			<Button type="Reject" text="Cancel" press="onRejectSreetF4"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

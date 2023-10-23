@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<TableSelectDialog noDataText="No Varaints Found" title="Select Variant" liveChange="handleVariantSearch" confirm="onSelectVaraint"
+		cancel="favDialogClose" contentWidth="50%" contentHeight="auto" items="{VaraintModel>/results}">
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier text="{VaraintModel>ZVARIANT}"/>
+					<Text text="{VaraintModel>VARI_DES}"/>
+					<Button icon="sap-icon://delete" press="onDeleteVaraint"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+		<columns>
+			<Column width="auto">
+				<header>
+					<Text text="Variant Name"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="Variant Description"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" width="4rem">
+				<header>
+					<Text text="Delete"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,140 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:f="sap.f"
+	controllerName="CTL.zcartcreaterequistion.controller.SearchAddress" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{AdreesTitleModel>/pageTitleText}" navButtonPress="navToReviewReq" showNavButton="true" titleLevel="H1">
+		<Panel>
+			<layout:HorizontalLayout allowWrapping="true">
+				<layout:VerticalLayout class="sapUiMediumMarginEnd">
+					<!-- <Label text="Name:" design="Bold"></Label>
+					<Input id="idname" maxLength="30" showSuggestion="true"></Input> -->
+					<Label text="State Code:" design="Bold"></Label>
+                    <Input width="1cm" id="idState" maxLength="2" showSuggestion="true"></Input>
+                  
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiMediumMarginEnd">
+					<Label text="Street:" design="Bold"></Label>
+                    <!-- developer commented value help for street -->
+					<!-- <Input id="idstreet" maxLength="60" showSuggestion="true" valueHelpRequest="onf4forStreet" showValueHelp="true"></Input> -->
+                    <Input id="idstreet" maxLength="60" showSuggestion="true"></Input>
+					<!-- <Label text="Postal Code:" design="Bold"></Label>
+					<Input id="idPostalCode" showSuggestion="true" maxLength="10"></Input> -->
+				</layout:VerticalLayout>
+                <layout:VerticalLayout class="sapUiMediumMarginEnd">
+					<Label text="Street2:" design="Bold"></Label>
+					<Input id="idStreet2" showSuggestion="true" maxLength="30"></Input>
+					<!-- <Label text="Search Term 1:" design="Bold"></Label>
+					<Input id="idSearchTerm1" showSuggestion="true" maxLength="20"></Input> -->
+				</layout:VerticalLayout>
+                <layout:VerticalLayout class="sapUiMediumMarginEnd">
+					<!-- g<Label text="Street:" design="Bold"></Label> -->
+                    <!-- developer commented value help for street -->
+					<!-- <Input id="idstreet" maxLength="60" showSuggestion="true" valueHelpRequest="onf4forStreet" showValueHelp="true"></Input> -->
+                    <!-- <Input id="idstreet" maxLength="60" showSuggestion="true"></Input> -->
+					<Label text="Postal Code:" design="Bold"></Label>
+					<Input id="idPostalCode" showSuggestion="true" maxLength="10"></Input>
+				</layout:VerticalLayout>
+				
+				<layout:VerticalLayout class="sapUiMediumMarginEnd">
+					<Label text="City:" design="Bold"></Label>
+                    <Input id="idCity" maxLength="30" showSuggestion="true"></Input>
+					<!-- <Label text="Search Term 2:" design="Bold"></Label>
+					<Input id="idSearchTerm2" maxLength="20" showSuggestion="true"></Input> -->
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiMediumMarginEnd">
+					<Label text="Address Number:" design="Bold" ></Label>
+					<Input id="idAddNo" maxLength="10" showSuggestion="true"></Input>
+					<layout:HorizontalLayout>
+						<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label></Label> 
+						<Button text="Search" type="Emphasized" icon="sap-icon://search" press="onSearchAddress"></Button>
+						</layout:VerticalLayout>
+						<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label></Label>
+						<Button text="Clear" type="Emphasized" icon="sap-icon://sys-cancel" press="onClearAddress"></Button>
+						</layout:VerticalLayout>
+					</layout:HorizontalLayout>
+				</layout:VerticalLayout>
+			</layout:HorizontalLayout>
+			<!--<fb:FilterBar id="idSearchFilterbar" search="onAddRequisition" clear="onClearFilter" showFilterConfiguration="false" showGoOnFB="true"-->
+			<!--	showClearOnFB="true" showRestoreButton="false" useToolbar="false">-->
+			<!--	<fb:filterGroupItems>-->
+			<!--		<fb:FilterGroupItem groupName="__$INTERNAL$" name="Name" label="Name" visibleInFilterBar="true">-->
+			<!--			<fb:control>-->
+							<!--<Input id="idCartItem" showSuggestion="true" maxLength="5" liveChange="cartItemRegExpValid" value="{FilterModel>/cartitem}"/>-->
+			<!--				<Input id="idname" maxLength="30" showSuggestion="true"></Input>-->
+			<!--			</fb:control>-->
+			<!--		</fb:FilterGroupItem>-->
+			<!--		<fb:FilterGroupItem groupName="__$INTERNAL$" name="Material" label="Material" visibleInFilterBar="true">-->
+			<!--			<fb:control>-->
+			<!--				<MultiInput id="idMaterial" maxLength="18" valueHelpRequest="onMaterialValueHelpDialog" showValueHelp="true"-->
+			<!--					liveChange="materialRegExpValid" value="{FilterModel>/material}"/></fb:control>-->
+			<!--		</fb:FilterGroupItem>-->
+			<!--		<fb:FilterGroupItem groupName="__$INTERNAL$" name="Material Description" label="Material Description" visibleInFilterBar="true">-->
+			<!--			<fb:control>-->
+			<!--				<Input name="Material Description" id="idMaterialDesc" showSuggestion="true" maxLength="80" value="{FilterModel>/matDescr}"/>-->
+			<!--			</fb:control>-->
+			<!--		</fb:FilterGroupItem>-->
+					<!--<fb:FilterGroupItem groupName="__$INTERNAL$" name="Quest Material" label="Quest Material" visibleInFilterBar="true">-->
+					<!--	<fb:control>-->
+					<!--		<Input id="idQuestMaterial" liveChange="materialRegExpValid" maxLength="18" value="{FilterModel>/questMat}"/>-->
+					<!--	</fb:control>-->
+					<!--</fb:FilterGroupItem>-->
+			<!--		<fb:FilterGroupItem groupName="__$INTERNAL$" name="Category5" label="Favorite" visibleInFilterBar="true">-->
+			<!--			<fb:control>-->
+			<!--				<Input id="idFavList" showValueHelp="true" showSuggestion="true" valueHelpRequest="onFavListValueHelp" value="{FilterModel>/favourite}"/>-->
+			<!--			</fb:control>-->
+			<!--		</fb:FilterGroupItem>-->
+			<!--	</fb:filterGroupItems>-->
+			<!--</fb:FilterBar>-->
+		</Panel>
+		<Panel>
+			<Table mode="SingleSelectLeft" items="{AddressSearchModel>/results}" id="idAddressTable" growing="true" growingThreshold="10">
+				<headerToolbar>
+					<OverflowToolbar>
+						<content>
+							<Title text="{AdreesTitleModel>/tableTitletext}" level="H2"/>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Label text="Name" design="Bold"></Label>
+					</Column>
+					<Column>
+						<Label text="Street" design="Bold"></Label>
+					</Column>
+					<Column hAlign="End" demandPopin="true" minScreenWidth="Tablet">
+						<Label text="Street2" design="Bold"></Label>
+					</Column>
+					<Column hAlign="End" demandPopin="true" minScreenWidth="Tablet">
+						<Label text="City" design="Bold"></Label>
+					</Column>
+					<Column hAlign="End" demandPopin="true" minScreenWidth="Tablet">
+						<Label text="Region" design="Bold"></Label>
+					</Column>
+					<Column hAlign="End" demandPopin="true" minScreenWidth="Tablet">
+						<Label text="Postal Code" design="Bold"></Label>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{AddressSearchModel>NAME}"></Text>
+							<Text text="{AddressSearchModel>STREET1}"></Text>
+							<Text text="{AddressSearchModel>STREET2}"></Text>
+							<Text text="{AddressSearchModel>CITY}"></Text>
+							<Text text="{AddressSearchModel>STATE}"></Text>
+							<Text text="{AddressSearchModel>POST_CODE1}"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</Panel>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Update" press="onUpdateAddress" icon="sap-icon://save"/>
+				<Button type="Reject" text="Cancel" press="oncanceladdresspage" icon="sap-icon://sys-cancel"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

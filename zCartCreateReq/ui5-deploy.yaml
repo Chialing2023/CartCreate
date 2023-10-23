@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.4"
+metadata:
+  name: CTL.zcartcreaterequistion
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: ds4system
+          url: http://ds4system:443
+        app:
+          name: ZCARTCRTREQ
+          description: CART
+          package: ZPTP
+          transport:  DS4K904648
+          
+

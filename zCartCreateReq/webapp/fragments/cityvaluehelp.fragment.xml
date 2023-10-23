@@ -1,0 +1,92 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout"
+	xmlns:f="sap.f">
+	<Dialog title="Select:City" contentWidth="820px">
+		<content>
+			<!--<Panel>-->
+			<!--	<layout:HorizontalLayout allowWrapping="true">-->
+			<!--		<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+			<!--			<Label text="City:" design="Bold"></Label>-->
+			<!--			<Input id="idCityValHelp" maxLength="30"></Input>-->
+			<!--			<Label text="CountryKey:" design="Bold"></Label>-->
+			<!--			<Input id="idCountryKeyCityValHelp" maxLength="60"></Input>-->
+			<!--		</layout:VerticalLayout>-->
+			<!--		<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+			<!--			<Label text="City Extension:" design="Bold"></Label>-->
+			<!--			<Input id="idCityExtCityValueHelp" maxLength="30"></Input>-->
+			<!--<Label text="Language Key:" design="Bold"></Label>-->
+			<!--<Input id="idLangKeyCityValHelp" maxLength="10"></Input>-->
+			<!--		</layout:VerticalLayout>-->
+			<!--		<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+			<!--			<Label text="Region:" design="Bold"></Label>-->
+			<!--			<Input id="idRegionCityValueHelp" maxLength="30"></Input>-->
+			<!--			<layout:HorizontalLayout>-->
+			<!--				<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+			<!--					<Label></Label>-->
+			<!--					<Button type="Emphasized" text="Search" press="onSearchCity"></Button>-->
+			<!--				</layout:VerticalLayout>-->
+			<!--				<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+			<!--					<Label></Label>-->
+			<!--					<Button type="Emphasized" text="clear" press="onClearCity"></Button>-->
+			<!--				</layout:VerticalLayout>-->
+			<!--			</layout:HorizontalLayout>-->
+			<!--		</layout:VerticalLayout>-->
+			<!--	</layout:HorizontalLayout>-->
+			<!--</Panel>-->
+			<!--<Panel>-->
+			<Table mode="SingleSelectLeft" id="idCitySearchTable" items="{CityModel>/results}" growing="true" growingThreshold="10">
+				<headerToolbar>
+					<OverflowToolbar>
+						<content>
+							<Title text="City Data"  level="H2"/>
+							<ToolbarSpacer/>
+							<SearchField  width="auto" id="idCitySearch"  liveChange="onCityLiveSearch"/>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Label text="City" wrapping="true"></Label>
+					</Column>
+					<Column demandPopin="true" minScreenWidth="Tablet">
+						<Label text="City Extension" wrapping="true"></Label>
+					</Column>
+					<!--<Column demandPopin="true" minScreenWidth="Tablet">-->
+					<!--	<Label text="Region" wrapping="true"></Label>-->
+					<!--</Column>-->
+					<!--<Column demandPopin="true" minScreenWidth="Tablet">-->
+					<!--	<Label text="Country" wrapping="true" width="6rem"></Label>-->
+					<!--</Column>-->
+					<!--<Column demandPopin="true" minScreenWidth="Tablet">-->
+					<!--	<Label text="City Number" width="5rem" wrapping="true"></Label>-->
+					<!--</Column>-->
+					<!--<Column demandPopin="true" minScreenWidth="Tablet">-->
+					<!--	<Label text="City" width="5rem" wrapping="true"></Label>-->
+					<!--</Column>-->
+					<!--<Column demandPopin="true" minScreenWidth="Tablet">-->
+					<!--	<Label text="Language" width="5rem" wrapping="true"></Label>-->
+					<!--</Column>-->
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{CityModel>CityName}" wrapping="true"></Text>
+							<Text text="{CityModel>CityExt}" wrapping="true"></Text>
+							<!--<Text text="{CityModel>Region}" wrapping="true"></Text>-->
+							<!--<Text text="{CityModel>Country}" wrapping="true"></Text>-->
+							<!--<Text text="{CityModel>CityCode}" wrapping="true"></Text>-->
+							<!--<Text text="{CityModel>McCity}" wrapping="true"></Text>-->
+							<!--<Text text="{CityModel>/results}" wrapping="true"></Text>-->
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<!--</Panel>-->
+		</content>
+		<beginButton>
+			<Button type="Accept" text="OK" press="onCitySelect"></Button>
+		</beginButton>
+		<endButton>
+			<Button type="Reject" text="Cancel" press="onRejectCityF4"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

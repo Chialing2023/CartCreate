@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">
+	<Dialog title="Edit Account Assignment">
+		<!--<HBox>-->
+		<!--	<VBox width="1%"></VBox>-->
+		<!--<VBox width="25%"></VBox>-->
+		<FlexBox direction="Column"  alignItems="Center" justifyContent="Center">
+			<VBox>
+			<VBox >
+				<!--<VBox>-->
+					<Label text="G/L Account :"></Label>
+					<Input value="{AccountAssignModel>/SAKNR}"  showValueHelp="true" valueHelpRequest="onGLAccountValueHelp"></Input>
+				<!--</VBox>-->
+			</VBox>
+			<VBox >
+				<!--<VBox>-->
+				<Label text="Cost Center :"></Label>
+				<Input value="{AccountAssignModel>/COST_CEN}"></Input>
+				<!--</VBox>-->
+			</VBox>
+			<VBox >
+				<!--<VBox>-->
+				<Label text="Internal Order :"></Label>
+				<Input value="{AccountAssignModel>/AUFNR}"></Input>
+				<!--</VBox>-->
+			</VBox>
+			<VBox >
+				<!--<VBox>-->
+				<Label text="Project WBS :"></Label>
+				<Input value="{AccountAssignModel>/PSPNR}" ></Input>
+				<!--</VBox>-->
+			</VBox>
+			<VBox>
+				<VBox >
+				<Label text="Plant Group :"></Label>
+				<Select width="100%" items="{PlantGrpModel>/results}" selectedKey="{AccountAssignModel>/REQ_TYP}">
+					<core:Item key="{PlantGrpModel>REQ_TYP}" text="{PlantGrpModel>REQ_TYP}"/>
+				</Select>
+				</VBox>
+				</VBox>
+			</VBox>
+		</FlexBox>
+		<!--<VBox width="10%"></VBox>-->
+		<!--	<VBox width="1%"></VBox>-->
+		<!--</HBox>-->
+		<beginButton>
+			<Button type="Accept" text="Update" press="onUpdateAccountAssign"></Button>
+		</beginButton>
+		<endButton>
+			<Button type="Reject" text="Cancel" press="onCancelAccoutAssign"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,180 @@
+{
+	
+	"PLANTGRP": [{
+		"PLANT_GRP": "SRV",
+		"PLANT_GRP_KEY": "SRV"
+	}, {
+		"PLANT_GRP": "REP",
+		"PLANT_GRP_KEY": "REP"
+	}, {
+		"PLANT_GRP": "DSL",
+		"PLANT_GRP_KEY": "DSL"
+	}],
+	"MaterialFilterSearch":[{
+		"KEY":"MBDE",
+		"TEXT":"Material By Description"
+		
+	},{
+		"KEY":"MBPI",
+		"TEXT":"Material By PreviousId"
+		
+	},{
+		"KEY":"MBBM",
+		"TEXT":"Material By Bill of Material"
+		
+	},{
+		"KEY":"MCAD",
+		"TEXT":"Material Transfered from CAD System"
+	},{
+		"KEY":"CPBC",
+		"TEXT":"Competitive Product by  Competitor"
+	},
+	{
+		"KEY":"PRTBDP",
+		"TEXT":"Production Resource/Tools by Description/PRT Grouping"
+	},{
+		"KEY":"SMBGPH",
+		"TEXT":"Sales Material by General Product Hierarchy"
+	},{
+		"KEY":"MBVMN",
+		"TEXT":"Material By Vendor's Material Number"
+	},{
+		"KEY":"PRTBDP",
+		"TEXT":"Material By Material Category"
+	},{
+		"KEY":"MBMG",
+		"TEXT":"Material By Material Group"
+	},{
+		"KEY":"MEAN",
+		"TEXT":"Material By EAN(International Article Number)"
+	},{
+		"KEY":"MBPH",
+		"TEXT":"Material By Product Hierarchy"
+	},{
+		"KEY":"MBTL",
+		"TEXT":"Material By Task List"
+	},{
+		"KEY":"SMBD",
+		"TEXT":"Sales Material By Description"
+	},{
+		"KEY":"MBMT",
+		"TEXT":"Material By Material Type"
+	},{
+		"KEY":"MBSA",
+		"TEXT":"Material By Supply Area"
+	},{
+		"KEY":"PMBD",
+		"TEXT":"Plant Material By Description"
+	},{
+		"KEY":"MWS",
+		"TEXT":"Material With Segmentation"
+	},{
+		"KEY":"SMPN",
+		"TEXT":"Search Help for Manufacturer Part Number"
+	},{
+		"KEY":"SMAMPL",
+		"TEXT":"Search Help for Manufacturer Part Number with AMPL"
+	},{
+		"KEY":"MIANVS",
+		"TEXT":"Material for International Article Numbers:Vendor Specific"
+	}
+	],
+	"ChartOfAccList":[{
+		"KEY":"CA01",
+		"TEXT":"CenturyTel Chart of Accounts"
+	},{
+		"KEY":"CABE",
+		"TEXT":"Chart of accounts - Belgium"
+	},{
+		"KEY":"CACH",
+		"TEXT":"Chart of accounts - Switzerland"
+	},{
+		"KEY":"CACN",
+		"TEXT":"Chart of accounts - China"
+	},{
+		"KEY":"CACO",
+		"TEXT":"Sample chart of accounts for Columbia"
+	},{
+		"KEY":"CACZ",
+		"TEXT":"Chart of accounts - Czech Republic"
+	},{
+		"KEY":"CABE",
+		"TEXT":"Chart of accounts - Spain"
+	},{
+		"KEY":"CAES",
+		"TEXT":"Chart of accounts - Belgium"
+	},{
+		"KEY":"CAFI",
+		"TEXT":"Chart of accounts - Finland"
+	},{
+		"KEY":"CAFR",
+		"TEXT":"Chart of accounts - France"
+	},{
+		"KEY":"CAHU",
+		"TEXT":"Chart of accounts - Hungary"
+	},{
+		"KEY":"CAJP",
+		"TEXT":"Chart of accounts - Japan"
+	},{
+		"KEY":"CAKR",
+		"TEXT":"Chart of accounts - Republic of Korea"
+	},{
+		"KEY":"CALU",
+		"TEXT":"Chart of accounts - Luxemburg"
+	},{
+		"KEY":"CAMX",
+		"TEXT":"Sample chart of accounts for Columbia"
+	},{
+		"KEY":"CANA",
+		"TEXT":"Chart of accounts - North America"
+	},{
+		"KEY":"CABE",
+		"TEXT":"Chart of accounts - Belgium"
+	},{
+		"KEY":"CANO",
+		"TEXT":"Chart of accounts - Norway"
+	},{
+		"KEY":"CAPE",
+		"TEXT":"Sample chart of accounts for Columbia"
+	},{
+		"KEY":"CAPL",
+		"TEXT":"Chart of accounts - Poland"
+	},{
+		"KEY":"CAPT",
+		"TEXT":"Chart of accounts - Portugal"
+	},{
+		"KEY":"CARU",
+		"TEXT":"Chart of accounts - Russia"
+	},{
+		"KEY":"CASE",
+		"TEXT":"Chart of accounts - Sweden"
+	},{
+		"KEY":"CAPT",
+		"TEXT":"Chart of accounts - Portugal"
+	},{
+		"KEY":"CASK",
+		"TEXT":"Chart of accounts - Slovakia"
+	},{
+		"KEY":"CATW",
+		"TEXT":"Chart of accounts - Taiwan"
+	},{
+		"KEY":"CAUA",
+		"TEXT":"Chart of accounts - Ukraine"
+	},{
+		"KEY":"CBSE",
+		"TEXT":"CChart of accounts - Sweden"
+	},{
+		"KEY":"GKR",
+		"TEXT":"German Joint Standard Accounting System"
+	},{
+		"KEY":"IKR",
+		"TEXT":"Chart of accounts - industry"
+	},{
+		"KEY":"INT",
+		"TEXT":"Sample chart of accounts"
+	},{
+		"KEY":"ZCON",
+		"TEXT":"Centurytel Group Chart of Accounts (Consolidation)"
+	}]
+
+}
